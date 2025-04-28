@@ -38,7 +38,7 @@ export function MobileNav() {
       <SheetContent side="left" className="w-[280px] sm:w-[300px]">
         <SheetHeader>
           <div className="flex items-center justify-between">
-            <SheetTitle className="text-pink-600">OncoXport</SheetTitle>
+            <SheetTitle className="text-pink-600">Gynovia</SheetTitle>
             <Button 
               variant="ghost" 
               size="icon" 
