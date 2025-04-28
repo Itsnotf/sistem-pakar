@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { toast } from "sonner";
 import { Loader2, Stethoscope, X } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default function KonsultasiPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -267,8 +268,9 @@ export default function KonsultasiPage() {
                       </div>
                     ))}
                     <p className="text-xs text-muted-foreground mt-4">
-                      *Hasil ini bersifat edukatif dan bukan pengganti diagnosis medis.
-                      Untuk pemeriksaan lebih lanjut, silakan konsultasikan dengan dokter spesialis.
+                      *Hasil ini bersifat edukatif dan bukan pengganti diagnosis
+                      medis. Untuk pemeriksaan lebih lanjut, silakan
+                      konsultasikan dengan dokter spesialis.
                     </p>
                   </div>
                 </AlertDialogHeader>
@@ -278,13 +280,16 @@ export default function KonsultasiPage() {
                     <Button variant="outline">Tutup</Button>
                   </AlertDialogCancel>
                   <AlertDialogAction asChild>
-                    <Button 
+                    <Button
                       onClick={() => {
                         toast.success("Hasil Konsultasi Berhasil Disimpan", {
-                          description: "Terima kasih telah menggunakan layanan kami. Hasil diagnosa telah tersimpan dalam rekam medis Anda.",
+                          description:
+                            "Terima kasih telah menggunakan layanan kami. Hasil diagnosa telah tersimpan dalam rekam medis Anda.",
                           action: {
                             label: "Mengerti",
-                            onClick: () => {},
+                            onClick: () => {
+                              redirect("/edukasi");
+                            },
                           },
                         });
                         setIsOpen(false);

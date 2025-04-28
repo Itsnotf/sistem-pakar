@@ -4,7 +4,7 @@ import { sendDiagnosaToGoogleSheets } from "@/lib/sheet";
 
 export async function POST(req : any) {
   try {
-    const diagnosaData = await req.json(); // Correct way to read the request body
+    const diagnosaData = await req.json(); 
     await sendDiagnosaToGoogleSheets(diagnosaData);
     return new Response(JSON.stringify({ message: "Data sent to Google Sheets successfully." }), { status: 200 });
   } catch (error) {
