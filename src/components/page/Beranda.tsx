@@ -9,8 +9,11 @@ import {
   HeartPulse,
 } from "lucide-react";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Beranda() {
+  const router = useRouter();
+
   return (
     <div className="space-y-20 pb-20">
       <section className="container md:px-28 p-5 py-16 md:py-24">
@@ -29,13 +32,16 @@ export default function Beranda() {
 
             <div className="flex justify-center md:justify-start gap-4 mt-8">
               <Button
-                className="px-8 py-6 mdtext-lg rounded-full gap-2 text-sm"
+                onClick={() => router.push("/konsultasi")}
+                className="px-8 py-6 md:text-lg rounded-full gap-2 text-sm"
                 size="lg"
               >
                 <Stethoscope className="w-5 h-5" />
                 Mulai Deteksi
               </Button>
+
               <Button
+                onClick={() => router.push("/edukasi")}
                 className="px-8 py-6 md:text-lg rounded-full gap-2 text-sm"
                 variant="outline"
                 size="lg"
