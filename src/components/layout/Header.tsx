@@ -15,7 +15,7 @@ export function Header() {
             <img src="/logo-pakar.png" alt="" />
           </div>
           <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 hidden sm:block">
-            OncoXport
+            Gynovia
           </span>
         </motion.div>
         <MainNav />

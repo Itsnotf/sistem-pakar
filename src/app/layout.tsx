@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OncoXport",
+  title: "Gynovia",
   description: "Sistem Pakar Diagnosa Penyakit Kanker",
 };
 
