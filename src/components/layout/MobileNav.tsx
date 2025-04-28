@@ -18,7 +18,6 @@ const mobileItems = [
   { title: "Beranda", link: "/" },
   { title: "Konsultasi", link: "/konsultasi" },
   { title: "Edukasi", link: "/edukasi" },
-  { title: "Tentang Kami", link: "/tentangkami" },
 ]
 
 export function MobileNav() {
