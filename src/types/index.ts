@@ -14,3 +14,8 @@ export type Gejala = {
     name: string;
   };
   
+  export type Artikel = {
+    id: string,
+    image: any,
+    link: string,
+  }

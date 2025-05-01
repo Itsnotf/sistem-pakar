@@ -68,7 +68,7 @@ export default function KonsultasiPage() {
       ).length;
       const confidence = (matchingGejala / penyakitGejala.length) * 100;
 
-      if (confidence > 20) {
+      if (confidence > 40) {
         const disease = diagnosa.find((d) => d.id === diagnosaId);
         if (disease) {
           hasil.push({

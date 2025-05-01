@@ -11,8 +11,39 @@ import {
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 
+import { Artikels } from "@/data/artikel";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+
 export default function Beranda() {
   const router = useRouter();
+
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <div className="space-y-20 pb-20">
@@ -52,11 +83,11 @@ export default function Beranda() {
             </div>
           </div>
 
-          <div className="lg:w-1/2 w-full">
+          <div className="lg:w-1/2 w-full flex justify-center">
             <img
-              src="/hero-image.png"
+              src="/hero-image.jpg"
               alt="Woman with health illustration"
-              className="rounded-xl"
+              className="w-full h-auto object-contain aspect-[3/4] lg:aspect-[4/3]"
             />
           </div>
         </div>
@@ -112,6 +143,42 @@ export default function Beranda() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container md:px-28 mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Artikel Kesehatan
+          </h2>
+          <Carousel setApi={setApi} className="w-full shadow-lg rounded-xl">
+            <CarouselContent>
+              {Artikels.map((artikel) => (
+                <CarouselItem key={artikel.id}>
+                  <div className="bg-white rounded-lg overflow-hidden mx-2">
+                    <div className="relative h-64 md:h-96">
+                      <Image
+                        src={artikel.image}
+                        alt={`Artikel ${artikel.id}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <a
+                        href={artikel.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 font-medium"
+                      >
+                        Baca Selengkapnya →
+                      </a>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
