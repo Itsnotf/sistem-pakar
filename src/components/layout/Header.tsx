@@ -6,7 +6,7 @@ import { MobileNav } from "./MobileNav";
 export function Header() {
   return (
     <header className="w-full border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container flex h-16 items-center justify-between px-4">
+      <div className="container flex h-16 items-center justify-between px-4 w-full mx-auto">
         <motion.div
           whileHover={{ scale: 1.05 }}
           className="flex items-center gap-2"

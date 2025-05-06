@@ -158,10 +158,11 @@ export default function KonsultasiPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="rekamMedis">Nomor Rekam Medis</Label>
+              <Label htmlFor="rekamMedis">Tanggal Lahir</Label>
               <Input
                 id="rekamMedis"
                 name="rekamMedis"
+                type="date"
                 placeholder="Masukkan nomor RM Anda"
                 value={identitas.rekamMedis}
                 onChange={handleIdentitasChange}

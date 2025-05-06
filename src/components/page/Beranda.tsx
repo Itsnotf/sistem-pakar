@@ -47,7 +47,7 @@ export default function Beranda() {
 
   return (
     <div className="space-y-20 pb-20">
-      <section className="container md:px-28 p-5 py-16 md:py-24">
+      <section className="container md:px-28 mx-auto px-4 py-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 space-y-6">
             <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-primary text-center md:text-left  leading-tight">
